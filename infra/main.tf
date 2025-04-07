@@ -13,12 +13,12 @@ resource "aws_vpc" "main" {
 }
 
 # Internet Gateway
-resource "aws_internet_gateway" "gw" {
-  vpc_id = aws_vpc.main.id
+#resource "aws_internet_gateway" "gw" {
+#  vpc_id = aws_vpc.main.id
   tags = {
     Name = "medusa-igw"
   }
-}
+#}
 
 # Public Subnet
 resource "aws_subnet" "public" {
@@ -125,17 +125,17 @@ resource "aws_db_instance" "medusa_db" {
     Name = "medusa-postgres"
   }
 }
-resource "aws_db_subnet_group" "medusa_subnet_group" {
-  name       = "medusa-db-subnet-group"
-    subnet_ids = [
-    aws_subnet.public.id,
-    aws_subnet.public_2.id
-  ]
+#resource "aws_db_subnet_group" "medusa_subnet_group" {
+ # name       = "medusa-db-subnet-group"
+  #  subnet_ids = [
+   # aws_subnet.public.id,
+   # aws_subnet.public_2.id
+  #]
 
-  tags = {
-    Name = "medusa-db-subnet-group"
-  }
-}
+  #tags = {
+   # Name = "medusa-db-subnet-group"
+ # }
+#}
 resource "aws_subnet" "public_2" {
   vpc_id                  = aws_vpc.main.id
   cidr_block              = "10.0.2.0/24"
