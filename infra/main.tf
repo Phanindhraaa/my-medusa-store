@@ -117,7 +117,7 @@ resource "aws_db_instance" "medusa_db" {
   skip_final_snapshot = true
 
   vpc_security_group_ids = [aws_security_group.medusa_sg.id]
-  db_subnet_group_name   = aws_db_subnet_group.medusa_subnet_group.name
+ # db_subnet_group_name   = aws_db_subnet_group.medusa_subnet_group.name
 
   publicly_accessible = true
 
